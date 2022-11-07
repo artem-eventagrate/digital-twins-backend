@@ -40,5 +40,5 @@ io.sockets.on("connection", function (socket) {
     });
 });
 
-console.log("Server started on port 2565");
-server.listen(3000);
+console.log("Server started on port 8080");
+server.listen(8080);
