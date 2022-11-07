@@ -41,4 +41,4 @@ io.sockets.on("connection", function (socket) {
 });
 
 console.log("Server started on port 2565");
-server.listen(2565);
+server.listen(3000);
