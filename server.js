@@ -69,7 +69,8 @@ io.sockets.on("connection", function (socket) {
                 players[socket.id] = new Player(data.avatarId);
                 socket.broadcast.emit("initDigitalTwinsAvatar", players[socket.id].avatarId);
             }
-            players[socket.id].bones = data.bones;
+            players[socket.id].bones = Object.assign(players[socket.id].bones, data.bones);
+            delete data;
             socket.broadcast.emit("responseAvatarsData", players);
         }
         catch (e) {
@@ -83,10 +84,14 @@ io.sockets.on("connection", function (socket) {
             avatarId: dataObject.avatarId,
             isActive: dataObject.IsActivate
         });
+
+        delete dataObject;
+        delete data;
     });
 
     socket.on("updateStageParameters", function(data) {
-        stageParameters = data;
+        stageParameters = Object.assign(stageParameters, data);
+        delete data;
         socket.broadcast.emit("getStageParameters", stageParameters);
     });
 
