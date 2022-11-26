@@ -5,43 +5,47 @@ const io = require("socket.io")(server, {
 
 let players = {};
 let stageParameters = {
-    seatCenter: {
-        id: 0,
-        avatarEnabled: false,
-        chairEnabled: true
-    },
-    seat01: {
-        id: 1,
-        avatarEnabled: false,
-        chairEnabled: true
-    },
-    seat02: {
-        id: 2,
-        avatarEnabled: false,
-        chairEnabled: true
-    },
-    seat03: {
-        id: 3,
-        avatarEnabled: false,
-        chairEnabled: true
-    },
-    seat04: {
-        id: 4,
-        avatarEnabled: false,
-        chairEnabled: true
-    },
-    seat05: {
-        id: 5,
-        avatarEnabled: false,
-        chairEnabled: true
-    },
-    seat06: {
-        id: 6,
-        avatarEnabled: false,
-        chairEnabled: true
+    seats: {
+        seatCenter: {
+            id: 0,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        },
+        seat01: {
+            id: 1,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        },
+        seat02: {
+            id: 2,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        },
+        seat03: {
+            id: 3,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        },
+        seat04: {
+            id: 4,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        },
+        seat05: {
+            id: 5,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        },
+        seat06: {
+            id: 6,
+            avatarTemplate: "Disabled",
+            chairEnabled: true
+        }
     },
     screen: {
         url: ""
+    },
+    customData: {
     }
 };
 
