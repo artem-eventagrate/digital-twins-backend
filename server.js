@@ -43,7 +43,7 @@ let stageParameters = {
         }
     },
     screen: {
-        url: ""
+        id: 0
     },
     customData: {
     }
