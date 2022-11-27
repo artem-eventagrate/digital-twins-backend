@@ -9,36 +9,43 @@ let stageParameters = {
         seatCenter: {
             id: 0,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         },
         seat01: {
             id: 1,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         },
         seat02: {
             id: 2,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         },
         seat03: {
             id: 3,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         },
         seat04: {
             id: 4,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         },
         seat05: {
             id: 5,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         },
         seat06: {
             id: 6,
             avatarTemplate: "Disabled",
+            movingEnabled: true,
             chairEnabled: true
         }
     },
@@ -61,6 +68,10 @@ io.sockets.on("connection", function (socket) {
         console.log("[INFO] - Client connection accepted!");
         socket.emit("connectionAccepted", socket.id);
         socket.emit("getStageParameters", stageParameters);
+    });
+
+    socket.on("connectAdminPanel", function() {
+        console.log("[INFO] - Admin panel connected");
     });
 
     socket.on("avatarData", function(data) {
@@ -101,6 +112,10 @@ io.sockets.on("connection", function (socket) {
         }
         console.log("[INFO] - Closed connection " + socket.id);
         delete players[socket.id];
+    });
+
+    socket.on("disconnect", (reason) => {
+        console.log(reason);
     });
 });
 
